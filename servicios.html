@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Vanidad - Nuestros Servicios</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #F7F0F1;
+            color: #5C3A57;
+            margin: 0;
+            padding: 50px 0;
+        }
+        h1 {
+            font-family: 'Tangerine', serif;
+            font-size: 2.5rem;
+            color: #5C3A57;
+            text-align: center;
+            margin-top: 0px;
+            
+        }
+        .servicios-container {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+            margin: 10px;
+            margin-bottom: 65px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .flip-card-front {
+            background-color: #FFF0F5;
+            color: black;
+            z-index: 2;
+            border-radius: 10px;
+        }
+        .flip-card-back {
+            background-color: #5C3A57;
+            color: white;
+            transform: rotateY(180deg);
+            z-index: 1;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        img{
+            border-radius: 10px 10px 0 0;
+            height: min-content;
+            width: min-content;
+        }
+        .contenedortop{
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            background-color: #FFE8ED; /* Color de fondo rosado claro del logotipo */
+            z-index: 1000;
+            border: 2px groove #DAA1B0; /* Bordes inferiores en tono rosa más oscuro */
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #FFE8ED; /* Color de fondo rosado claro del logotipo */
+            z-index: 1000;
+            border-bottom: 2px solid #DAA1B0; /* Bordes inferiores en tono rosa más oscuro */
+        }
+        h1 {
+            font-family: 'Tangerine', serif;
+            text-align: center;
+            font-size: 4rem;
+            color: #5C3A57; /* Texto en tono que combina con el logotipo */
+            margin: 0;
+            padding: 10px 0;
+        }
+        button {
+            background-color: #FFD1DC; /* Botones en tono rosa más suave del logotipo */
+            border: none;
+            border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
+            color: #5C3A57; /* Texto en tono que combina con el logotipo */
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #FABAC0; /* Color al pasar el ratón por encima, un tono intermedio */
+            transform: translateY(-3px); /* Ligero efecto al pasar el ratón por encima */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <center>
+        <div class="header-image" style="background-image: url('imagenheader.png');"></div>
+        <h1>Servicios</h1> 
+        <div class="header-image" style="background-image: url('left-image.jpg');"></div>
+        <div class="botones">
+           <a href="index.html"><button>Página Principal</button></a>
+            <a href="nosotros.html"><button>Nosotros</button></a>
+            <a href="servicios.html"><button >Servicios</button></a>
+            <a href=""><button>Productos</button></a>
+            <a href=""><button>Galería</button></a>
+            <a href=""><button>Contacto</button></a>
+        </div>
+    </center>
+    </header>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <div class="servicios-container">
+            <!-- Cada servicio tiene su tarjeta que se puede voltear -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Corte y moldeado/IMG_3250(1).PNG" alt="Corte y Modelado" style="width:100%;height:300px;">
+                        <h3>Corte y Modelado</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Corte y Modelado</h3>
+                        <p>Transforma tu cabello con cortes y estilos diseñados para realzar tu belleza. Este servicio incluye asesoramiento personalizado para encontrar el estilo perfecto para ti.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Depilación/ECDA0D06-FCE8-42C5-A8E9-46F1AA6022EF.jpeg" alt="Depilación" style="width:100%;height:300px;">
+                        <h3>Depilación</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Depilación</h3>
+                        <p>Elimina el vello no deseado con nuestras técnicas suaves y efectivas. Ofrecemos soluciones tanto temporales como permanentes adaptadas a tus necesidades.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Extensiones de pestañas/pestañas.JPG" alt="Extensiones de pestañas" style="width:100%;height:300px;">
+                        <h3>Extensiones de pestañas</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Extensiones de pestañas</h3>
+                        <p>Acentúa tu mirada con extensiones naturales y duraderas. Perfecto para eventos especiales o para el uso diario.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Maquillaje y peinado/maquillajeypeinado.jpg" alt="Maquillaje y peinado" style="width:100%;height:300px;">
+                        <h3>Maquillaje y peinado</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Maquillaje y peinado</h3>
+                        <p>Ideal para eventos especiales, te ayudamos a lucir espectacular con un look personalizado.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Efectos de color-Tintes-Retoques de tinte-mechas/mechas.jpg" alt="Mechas" style="width:100%;height:300px;">
+                        <h3>Mechas</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Mechas</h3>
+                        <p>Aporta luminosidad y dimensión a tu cabello con nuestras técnicas personalizadas de coloración.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Uñas-manicura-pedicura/uñas.PNG" alt="Pedicura" style="width:100%;height:300px;">
+                        <h3>Pedicura</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Pedicura</h3>
+                        <p>Disfruta de un tratamiento relajante y embellece tus pies con una variedad de opciones estéticas y terapéuticas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Tratamientos capilares/tratamiento.jpg" alt="Tratamientos capilares" style="width:100%;height:300px;">
+                        <h3>Tratamientos capilares</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Tratamientos capilares</h3>
+                        <p>Revitaliza tu cabello con tratamientos que restauran su salud y brillo, adaptados a cada tipo de cabello y necesidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
