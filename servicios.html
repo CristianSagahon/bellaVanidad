@@ -113,14 +113,30 @@
             background-color: #FABAC0; /* Color al pasar el ratón por encima, un tono intermedio */
             transform: translateY(-3px); /* Ligero efecto al pasar el ratón por encima */
         }
+        .botonCatalogo {
+    background-color: #76c7c0; /* Verde azulado suave para destacar sin desentonar */
+    border: none;
+    border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
+    color: #ffffff; /* Texto en blanco para asegurar legibilidad */
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.botonCatalogo:hover {
+    background-color: #5db0a6; /* Un tono ligeramente más oscuro al pasar el ratón por encima */
+    transform: translateY(-3px); /* Ligero efecto al pasar el ratón por encima */
+}
+
+        
     </style>
 </head>
 <body>
     <header>
         <center>
-        <div class="header-image" style="background-image: url('imagenheader.png');"></div>
         <h1>Servicios</h1> 
-        <div class="header-image" style="background-image: url('left-image.jpg');"></div>
         <div class="botones">
            <a href="index.html"><button>Página Principal</button></a>
             <a href="nosotros.html"><button>Nosotros</button></a>
@@ -131,12 +147,18 @@
         </div>
     </center>
     </header>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
+     
+        <br>
+        <br>
+        <br>
+        <div>
+   
+            <br>
+            <br>
+            <center>
+            <a href="PreciosBellaVanidad2024.pdf" download="precios" target="_blank"><button class="botonCatalogo">Ver catalogo completo</button></a>
+        </center>
+        </div>
         <div class="servicios-container">
             <!-- Cada servicio tiene su tarjeta que se puede voltear -->
             <div class="flip-card">
