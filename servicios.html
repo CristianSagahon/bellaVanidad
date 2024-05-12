@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Vanidad - Nuestros Servicios</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        body {
+        body  {
             font-family: 'Raleway', sans-serif;
             background-color: #F7F0F1;
             color: #5C3A57;
             margin: 0;
+            height: 100%;
             padding: 50px 0;
         }
         h1 {
@@ -21,6 +24,7 @@
             margin-top: 0px;
             
         }
+        
         .servicios-container {
             padding: 20px;
             display: flex;
@@ -129,8 +133,23 @@
     background-color: #5db0a6; /* Un tono ligeramente más oscuro al pasar el ratón por encima */
     transform: translateY(-3px); /* Ligero efecto al pasar el ratón por encima */
 }
+@media (max-width: 768px) {
+            .social-icons a {
+                font-size: 20px;
+                margin: 0 5px;
+            }
+        }
+.social-icons a {
+            color: #5C3A57;
+            margin: 0 10px;
+            font-size: 24px;
+        }
 
-        
+        .social-icons a:hover {
+            color: #DAA1B0;
+            transform: scale(1.1);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }    
     </style>
 </head>
 <body>
@@ -248,5 +267,14 @@
             </div>
         </div>
     </section>
+    <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
+        <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
+        <p>Síguenos en nuestras redes sociales.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a"></a>
+        </div>
+        </footer>
 </body>
 </html>
