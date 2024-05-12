@@ -67,13 +67,42 @@
         }
         #map { width: 400px; height: 400px; }
         .carousel-inner img {
-            width: 100%;
-            max-height: 300px; /* Ajusta la altura máxima de las imágenes */
-        }
-        .carousel {
-            width: 50%; /* Ajusta el ancho del carrusel */
-            margin: auto;
-        }
+    width: auto; /* Cambia a auto para mantener la proporción de las imágenes */
+    max-height: 500px; /* Reduce la altura máxima para hacer las imágenes más pequeñas */
+    object-fit: cover; /* Asegura que las imágenes cubran el espacio sin deformarse */
+    border-radius: 10px; /* Bordes redondeados para un look más suave */
+    margin: auto; /* Centra las imágenes en el carrusel */
+}
+
+/* Ajustes para el carrusel en general */
+/* Ajustes específicos para las imágenes dentro del carrusel */
+.carousel-inner img {
+    max-height: 500px; /* Reduce aún más la altura máxima para hacer las imágenes más pequeñas */
+    object-fit: cover; /* Mantiene la relación de aspecto de las imágenes */
+    border-radius: 10px; /* Bordes redondeados para un look más suave */
+}
+
+/* Ajustes para el carrusel en general */
+.carousel {
+    max-width: 50%; /* Reduce el ancho máximo del carrusel para hacerlo más pequeño */
+    margin: auto; /* Centra el carrusel horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    border-radius: 10px; /* Bordes redondeados para el carrusel */
+}
+
+/* Ajustes para mejorar la visibilidad de los controles y los indicadores del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #FFD1DC; /* Color de fondo para los iconos de control */
+    border-radius: 50%; /* Hace los iconos circulares */
+}
+
+.carousel-indicators li {
+    background-color: #5C3A57; /* Cambia el color de los indicadores */
+    border-radius: 50%; /* Hace los indicadores circulares */
+}
+
+
    
 
 .equipo-container {
@@ -119,10 +148,10 @@
 }
 @media (max-width: 768px) {
     .carousel {
-        width: 100%; /* Hacer que el carrusel ocupe todo el ancho disponible */
+        max-width: 100%; /* En dispositivos móviles, el carrusel puede ocupar todo el ancho */
     }
     .carousel-inner img {
-        max-height: 200px; /* Ajustar la altura máxima para móviles */
+        max-height: 200px; /* Ajusta la altura máxima para dispositivos más pequeños */
     }
 }
 @media (max-width: 768px) {
@@ -141,6 +170,41 @@
     }
 }
 
+        .blog-section {
+            padding: 40px 0;
+        }
+        .blog-post {
+            margin-bottom: 30px;
+        }
+        .contact-form {
+            padding: 40px 0;
+            background-color: #FFE8ED;
+        }
+        .contact-form form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            border-radius: 20px;
+        }
+        .form-control:focus {
+            border-color: #DAA1B0;
+            box-shadow: none;
+        }
+        .submit-btn {
+            background-color: #FFD1DC;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #FABAC0;
+        }
 
     </style>
 </head>
@@ -244,7 +308,32 @@
                 </a>
             </div>
         </section>
+        
 
+        <!-- Sección de Blog o Consejos de Belleza -->
+        <section class="blog-section">
+            <div class="container">
+                <h2>Consejos de Belleza</h2>
+                <div class="blog-post">
+                    <h5>Introducción al artículo o consejo de belleza.</h5>
+                    <p>¿Aún no estás segura de cómo cuidar el cabello? <a href="https://www.allthingshair.com/es-mx/cuidado-del-cabello/trucos-para-cabello/como-cuidar-el-cabello/" target="_blank">Leer más...</a></p>
+                </div>
+                <div class="blog-post">
+                    <h5>Los 21 mejores consejos de cuidado capilar y peinado para cada tipo de cabello</h5>
+                    <p>A veces, los consejos más sencillos tienen un gran impacto. <a href="https://es.lorealparisusa.com/revista-de-belleza/cuidado-capilar/todos-los-tipos-de-cabello/los-mejores-consejos-cuidado-capilar" target="_blank">Leer más...</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Contacto Mejorado -->
+        <section class="contact-form">
+            <div class="container">
+                <h2>Contacta con Nosotros</h2>
+                <p>¿Tienes alguna pregunta o necesitas agendar una cita? ¡No dudes en enviarnos un mensaje a través de WhatsApp!</p>
+                <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" class="submit-btn" target="_blank">Enviar Mensaje por WhatsApp</a>
+            </div>
+        </section>
+        
         <center>
             <h2>Mapa de referencia</h2>
             <br>
