@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="logo.jpg" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
+    <title>Contacto</title>
+    <style>
+    body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #F7F0F1;
+    color: #5C3A57;
+    margin: 0;
+    padding: 0;
+    padding-top: 120px;
+    }
+    header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #FFE8ED;
+    z-index: 1000;
+    border-bottom: 2px solid #DAA1B0;
+    }
+    h1 {
+        font-family: 'Tangerine', serif;
+            text-align: center;
+            font-size: 4rem;
+            color: #5C3A57; /* Texto en tono que combina con el logotipo */
+            margin: 0;
+            padding: 10px 0;
+    }
+    .botones {
+    text-align: center;
+    padding-bottom: 10px;
+    }
+    button {
+    background-color: #FFD1DC;
+    border: none;
+    border-radius: 20px;
+    color: #5C3A57;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    }
+    button:hover {
+    background-color: #FABAC0;
+    transform: translateY(-3px);
+    }
+    .social-icons a {
+    color: #5C3A57; /* Color del texto que combina con el logo */
+    margin: 0 10px; /* Espacio horizontal entre iconos */
+    font-size: 24px; /* Tamaño de los iconos */
+    }
+
+    .social-icons a:hover {
+    color: #DAA1B0; /* Color al pasar el ratón por encima */
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+    transition: color 0.3s ease, transform 0.3s ease;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bella Vanidad</h1>
+        <div class="botones">
+            <a href="index.html"> <button>Inicio</button></a>
+            <a href="nosotros.html"><button>Nosotros</button></a>
+            <a href="servicios.html"><button >Servicios</button></a>
+            <a href="productos.html"><button>Productos</button></a>
+            <a href="galeria.html"><button>Galería</button></a>
+            <a href="contacto.html"><button>Contacto</button></a>
+        </div>
+    </header>
+    <br>
+    <div class="container mt-4">
+        <h2>Pedidos</h2>
+        <p>Aquí puedes encontrar un formulario con nuestros productos (puedes ver la descripción de cada producto en la pestaña correspondiente), de tal manera que puedas generar un voucher y puedas ir a la tienda fisica y recoger tus productos.</p>
+        <form id="pedidoForm">
+            <div class="form-group">
+                <label for="fecha">Fecha de Pedido:</label>
+                <input type="date" class="form-control" id="fecha" name="fecha">
+            </div>
+            <div class="form-group">
+                <label for="productos">Selecciona los productos (mantén presionada la tecla Ctrl para seleccionar varios):</label>
+                <select id="productos" name="productos" multiple class="form-control">
+                    <option value="Tec Italy Due Faccetta Massimo $460.00">Tec Italy Due Faccetta Massimo $460.00</option>
+                    <option value="Tec Italy Olio Vital Color $440.00">Tec Italy Olio Vital Color $440.00</option>
+                    <option value="Pravana The Perfect Blonde Purple Toning Conditioner $420.00">Pravana The Perfect Blonde Purple Toning Conditioner $420.00</option>
+                    <option value="Tec Italy Lumina Shampoo $290.00">Tec Italy Lumina Shampoo $290.00</option>
+                    <option value="Pravana Nevo Reparative Shampoo $320.00">Pravana Nevo Reparative Shampoo $320.00</option>
+                    <option value="Nashi Armonia Shampoo $480.00">Nashi Armonia Shampoo $480.00</option>
+                    <option value="Pravana Nevo Deep Therapy Mask $420.00">Pravana Nevo Deep Therapy Mask $420.00</option>
+                    <option value="Pravana Intense Therapy Treat $380.00">Pravana Intense Therapy Treat $380.00</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="generarPDF()">Generar Pedido</button>
+        </form>
+    </div>
+
+    <script>
+        function generarPDF() {
+            const fecha = document.getElementById('fecha').value;
+            const productosSelect = document.getElementById('productos');
+            let productos = [];
+            let total = 0;
+            for (let i = 0; i < productosSelect.options.length; i++) {
+                if (productosSelect.options[i].selected) {
+                    productos.push(productosSelect.options[i].value);
+                    let precio = productosSelect.options[i].value.match(/\$([0-9]+\.[0-9]{2})/)[1];
+                    total += parseFloat(precio);
+                }
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text('Pedido del día: ' + fecha, 20, 20);
+            doc.text('Productos seleccionados:', 20, 30);
+            productos.forEach((producto, index) => {
+                doc.text(producto, 20, 40 + (10 * index));
+            });
+
+            doc.text('Total del pedido: $' + total.toFixed(2), 20, 40 + (10 * productos.length));
+
+            const pdfDataUri = doc.output('datauristring');
+            document.getElementById('pdfIframe').src = pdfDataUri;
+        }
+    </script>
+    <iframe id="pdfIframe" width="100%" height="400px" style="border: none;"></iframe>
+    <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
+        <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
+        <p>Síguenos en nuestras redes sociales.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
