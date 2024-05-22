@@ -67,20 +67,52 @@
     transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
     transition: color 0.3s ease, transform 0.3s ease;
     }
+        .navbar-brand {
+    font-family: 'Tangerine', serif;
+    color: #5C3A57;
+    font-size: 2.5rem;
+}
+
+.nav-link {
+    color: #5C3A57;
+    font-size: 1.2rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #DAA1B0;
+}
+
     </style>
 </head>
-<body>
-    <header>
-        <h1>Bella Vanidad</h1>
-        <div class="botones">
-            <a href="index.html"> <button>Inicio</button></a>
-            <a href="nosotros.html"><button>Nosotros</button></a>
-            <a href="servicios.html"><button >Servicios</button></a>
-            <a href="productos.html"><button>Productos</button></a>
-            <a href="galeria.html"><button>Galería</button></a>
-            <a href="contacto.html"><button>Contacto</button></a>
-        </div>
+<body> <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
+            <a class="navbar-brand" href="#">Bella Vanidad</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><button>Inicio</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html"><button>Nosotros</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><button>Servicios</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html"><button>Productos</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><button>Galería</button></a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
     </header>
+    
     <br>
     <div class="container mt-4">
         <h2>Pedidos</h2>
