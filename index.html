@@ -14,25 +14,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <title>Bella Vanidad</title>
     <style>
         body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #F7F0F1; /* Fondo crema suave que combina con el logotipo */
-            color: #5C3A57; /* Texto en tono que combina con el logotipo */
+                    font-family: 'Raleway', sans-serif;
+            background-color: #F7F7F7; /* Fondo general más neutral */
+            color: #333; /* Contraste suave para texto */
             margin: 0;
-            padding: 0;
-            padding-top: 120px; /* Espacio para la barra de navegación fija */
+            padding-top: 120px; /* Ajuste para la navegación fija */
         }
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: #FFE8ED; /* Light pink background color of the logo */
+            background-color: rgba(255, 232, 237, 0.95); /* Ligeramente transparente */
             z-index: 1000;
-            border-bottom: 2px solid #DAA1B0; /* Darker pink border tone */
             display: flex;
+            color: #333; /* Texto oscuro para contraste */
             justify-content: space-between;
             padding: 10px 50px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -49,21 +48,90 @@
             text-align: center;
             padding-bottom: 10px;
         }
+        .navbar-light .navbar-nav .nav-link {
+    color: #E4007C; /* Rosa mexicano para enlaces */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #C30068; /* Variante más oscura del rosa para hover */
+}
+
+/* Botones con estilo principal */
+button, .submit-btn {
+    background-color: #E4007C; /* Rosa mexicano */
+    color: #FFFFFF; /* Texto en blanco */
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover, .submit-btn:hover {
+    background-color: #C30068; /* Oscurecimiento al hacer hover */
+}
+
+/* Secciones del main */
+section {
+    background-color: #FFFFFF; /* Fondo blanco para secciones */
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave para profundidad */
+}
+
+/* Títulos y textos importantes */
+h1, h2 {
+    color: #E4007C; /* Rosa mexicano para destacar */
+}
+
+/* Mejoras en el carrusel */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #FFD1DC; /* Rosa muy suave */
+}
+
+.carousel-indicators li {
+    background-color: #E4007C; /* Rosa mexicano para indicadores */
+}
+
+.carousel-inner img:hover {
+    transform: scale(1.05); /* Efecto sutil al hacer hover */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        border-color: #E4007C; /* Rosa para el toggler */
+    }
+}
+
+footer {
+    background-color: #FFF; /* Blanco para el pie de página */
+    color: #333; /* Texto en gris oscuro */
+}
         button {
-            background-color: #FFD1DC; /* Botones en tono rosa más suave del logotipo */
-            border: none;
+            background-color: #FFFFFF; /* Fondo blanco */
+             color: #E4007C; /* Texto rosa mexicano */
+             border: 2px solid #E4007C; /* Borde rosa mexicano */ /* Botones en tono rosa más suave del logotipo */
+           
             border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
-            color: #5C3A57; /* Texto en tono que combina con el logotipo */
-            font-size: 16px;
+           
+            font-size: 18px;
             padding: 10px 20px;
             margin: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
         }
-        button:hover {
-            background-color: #FABAC0; /* Color al pasar el ratón por encima, un tono intermedio */
-            transform: translateY(-3px); /* Ligero efecto al pasar el ratón por encima */
-        }
+        
+        /*Boton para haecr que se pinte cuando se esta en la pagina*/
+        button.active {
+            background-color: #C30068; /* Un tono más oscuro de rosa mexicano */
+    color: #FFFFFF; /* Texto en blanco para máxima legibilidad */
+    border: 2px solid #FFFFFF; /* Borde blanco para destacar el botón activo */
+}
+button:hover, button.active:hover {
+    background-color: #D60076; /* Un tono intermedio al hacer hover para suavizar la transición */
+    color: #FFFFFF; /* Texto blanco al hacer hover */
+    transform: translateY(-2px); 
+}
+
         .header-image {
             width: 10%; /* Ajusta el porcentaje según el tamaño deseado para las imágenes */
             height: 100%;
@@ -76,15 +144,9 @@
     object-fit: cover; /* Asegura que las imágenes cubran el espacio sin deformarse */
     border-radius: 10px; /* Bordes redondeados para un look más suave */
     margin: auto; /* Centra las imágenes en el carrusel */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sombra suave para destacar sobre el fondo */
 }
 
-/* Ajustes para el carrusel en general */
-/* Ajustes específicos para las imágenes dentro del carrusel */
-.carousel-inner img {
-    max-height: 500px; /* Reduce aún más la altura máxima para hacer las imágenes más pequeñas */
-    object-fit: cover; /* Mantiene la relación de aspecto de las imágenes */
-    border-radius: 10px; /* Bordes redondeados para un look más suave */
-}
 
 /* Ajustes para el carrusel en general */
 .carousel {
@@ -93,17 +155,19 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
     border-radius: 10px; /* Bordes redondeados para el carrusel */
 }
-
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
+    border-radius: 5px;
+    padding: 10px;
+}
 /* Ajustes para mejorar la visibilidad de los controles y los indicadores del carrusel */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: #FFD1DC; /* Color de fondo para los iconos de control */
-    border-radius: 50%; /* Hace los iconos circulares */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.8));
 }
 
+
 .carousel-indicators li {
-    background-color: #5C3A57; /* Cambia el color de los indicadores */
-    border-radius: 50%; /* Hace los indicadores circulares */
+    border-color: #fff; /* Borde blanco para los indicadores para que sean visibles en todos los fondos */
 }
 
 
@@ -143,6 +207,15 @@
     transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
     transition: color 0.3s ease, transform 0.3s ease;
 }
+/* Media Query para ajustar el tamaño en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 60px; /* Altura más pequeña para dispositivos móviles */
+    }
+    .navbar {
+        min-height: 80px; /* Altura mínima ajustada para dispositivos móviles */
+    }
+}
 @media (max-width: 768px) {
     .botones button {
         font-size: 14px;
@@ -173,7 +246,77 @@
         margin: 0 5px; /* Reducir el espacio entre íconos */
     }
 }
+section {
+    margin-bottom: 40px;
+    padding: 50px;
+    border-radius: 10px;
+}
+#nosotros {
+    background-color: #FFF0F5; /* Un tono suave de rosa */
+}
+#servicios {
+    background-color: #FEF0F9; /* Un rosa pálido para servicios */
+    color: #5C3A57; /* Asegura que el texto sea legible */
+}
+#productos {
+    background: linear-gradient(135deg, #FADADD 0%, #FBC8D4 100%); /* Un degradado suave que complementa el tema */
+    color: #333; /* Texto oscuro para mejor contraste */
+}
+.blog-section{
+    background-image: url('fondoestrellas.gif'); /* Asegúrate de poner la URL correcta */
+    background-size: cover; /* Cubre completamente el área sin distorsionar la imagen */
+    background-position: center; /* Centra la imagen en el elemento */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    color: #ffffff; /* Cambia el color del texto a blanco para mejorar la legibilidad */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra negra suave para texto para mejor contraste */
+    padding: 40px; /* Ajuste para el padding si es necesario */
+    border-radius: 8px; /* Mantiene los bordes redondeados */
+}
+.contact-form {
+    background-image: url('fondoBurbuja.gif'); /* Asegúrate de poner la URL correcta */
+    background-size: cover; /* Cubre completamente el área sin distorsionar la imagen */
+    background-position: center; /* Centra la imagen en el elemento */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    color: #ffffff; /* Cambia el color del texto a blanco para mejorar la legibilidad */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra negra suave para texto para mejor contraste */
+    padding: 40px; /* Ajuste para el padding si es necesario */
+    border-radius: 8px; /* Mantiene los bordes redondeados */
+}
 
+/* Mejoras visuales para carruseles y contenido */
+.carousel-inner img {
+    transition: transform 0.5s ease;
+}
+
+.carousel-inner img:hover {
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #FFD1DC;
+}
+
+.carousel-indicators li {
+    background-color: #E4007C; /* Un tono más intenso para destacar los indicadores */
+}
+
+/* Efectos adicionales para botones */
+button:hover, button:focus {
+    background-color: #E4007C;
+    border-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efectos para links */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Secciones con efectos visuales adicionales */
+.contact-form {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra para mayor profundidad */
+    border: solid 1px #FFD1DC; /* Borde sutil */
+}
         .blog-section {
             padding: 40px 0;
         }
@@ -209,6 +352,11 @@
         .submit-btn:hover {
             background-color: #FABAC0;
         }
+        .navbar {
+    padding: 10px 20px; /* Ajusta el padding si es necesario */
+    min-height: 100px; /* Ajusta la altura mínima para el nuevo tamaño del logo */
+}
+
 .navbar-brand {
     font-family: 'Tangerine', serif;
     color: #5C3A57;
@@ -216,27 +364,81 @@
 }
 
 .nav-link {
-    color: #5C3A57;
+    color: #FFFFFF;
     font-size: 1.2rem;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav  {
     color: #DAA1B0;
 }
+.nav-link:hover {
+    color: #FABAC0; /* Enlaces en rosa más claro al pasar el ratón */
+}
+.navbar-toggler {
+    border-color: #FFFFFF; /* Borde del toggler en blanco para contraste */
+}
+.welcome-message {
+    font-family: 'Tangerine', serif; /* Mantenemos la coh   erencia con el estilo de la página */
+    font-size: 90px; /* Aumentamos el tamaño de la fuente para mayor visibilidad */
+    color: #FFFFFF; /* Texto en color blanco para alto contraste */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6); /* Sombra de texto para mejorar la legibilidad sobre el fondo desenfocado */
+    text-align: center;
+    position: relative; /* Asegura que el texto esté sobre el fondo desenfocado */
+    padding: 20px;
+    border-radius: 10px;
+    
+    animation: appear 3s ease-out forwards;
+        }
+        @keyframes appear{
+            0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+        }
+        .full-page-background {
+    position: relative; /* Posiciona relativo para que el pseudo-elemento se base en este contenedor */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-page-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('maquillajeypeinado.jpg'); /* Asegúrate de poner la URL correcta */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px); /* Desenfoca el fondo */
+    z-index: -1; /* Mantiene el fondo detrás del contenido */
+}
+
+  
 
     </style>
 </head>
 <body>
      <header>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
-            <a class="navbar-brand" href="#">Bella Vanidad</a>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FFE8ED;">
+            <a class="navbar-brand" href="#">
+                <img src="vanidad.jpg" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
+            </a>            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#nosotros"><button>Inicio</button></a>
+                        <a class="nav-link" href="#nosotros"><button class="active">Inicio</button></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="nosotros.html"><button>Nosotros</button></a>
@@ -254,11 +456,18 @@
                         <a class="nav-link" href="contacto.html"><button>Contacto</button></a>
                     </li>
                 </ul>
+                
             </div>
         </nav>
     </header>
+    <div class="full-page-background">
+        <div class="welcome-message">
+            Bienvenidos a Bella Vanidad<br>
+            <small>Tu belleza, nuestra pasión.</small>
+        </div>
+    </div>
     <main>
-        <section id="nosotros" style="padding: 50px; text-align: center;">
+        <section id="nosotros" style="padding: 50px; text-align: center;" data-aos="fade-up" data-aos-delay="100">
             <center>
             <div class="equipo-container">
                 <div class="texto-equipo">
@@ -275,7 +484,7 @@
         </center>
         </section>
 
-        <section id="servicios" style="padding: 50px;">
+        <section id="servicios" style="padding: 50px;"data-aos="fade-up" data-aos-delay="200">
             <h2>Nuestros Servicios</h2>
             <p>En <strong>Bella Vanidad</strong>, nos especializamos en resaltar tu belleza única con una variedad de servicios estéticos personalizados. Ya sea que busques un nuevo estilo con nuestros expertos en corte y coloración, un rejuvenecimiento completo con tratamientos faciales y capilares, o un toque especial para un evento con nuestros servicios de maquillaje y manicura, te garantizamos una experiencia excepcional. Ven y transforma tu look con nosotros, donde la calidad y tu satisfacción son nuestra prioridad.</p>
             <div id="serviciosCarousel" class="carousel slide" data-ride="carousel">
@@ -310,7 +519,7 @@
             </div>
         </section>
         
-        <section id="productos" style="padding: 50px; text-align: center;">
+        <section id="productos" style="padding: 50px; text-align: center;" data-aos="fade-up" data-aos-delay="300">
             <h2>Productos Destacados</h2>
             <p>Explora nuestros productos más vendidos.</p>
             <div id="productosCarousel" class="carousel slide" data-ride="carousel">
@@ -347,7 +556,7 @@
         
 
         <!-- Sección de Blog o Consejos de Belleza -->
-        <section class="blog-section">
+        <section class="blog-section" data-aos="fade-up" data-aos-delay="400">
             <div class="container">
                 <h2>Consejos de Belleza</h2>
                 <div class="blog-post">
@@ -362,7 +571,7 @@
         </section>
 
         <!-- Formulario de Contacto Mejorado -->
-        <section class="contact-form">
+        <section class="contact-form" data-aos="fade-up" data-aos-delay="500">
             <div class="container">
                 <h2>Contacta con Nosotros</h2>
                 <p>¿Tienes alguna pregunta o necesitas agendar una cita? ¡No dudes en enviarnos un mensaje a través de WhatsApp!</p>
@@ -373,10 +582,10 @@
         <center>
             <h2>Mapa de referencia</h2>
             <br>
-            <div id="map" style="width: 400px; height: 400px; align-items: center;"></div>
+            <div id="map" style="width: 400px; height: 400px; align-items: center;" data-aos="fade-up" data-aos-delay="400"></div>
         </center>
     </main>
-    <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
+    <footer style=" background-color: rgba(255, 232, 237, 0.95); padding: 20px; text-align: center; color:#000;">
         <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
         <p>Síguenos en nuestras redes sociales.</p>
         <div class="social-icons">
@@ -394,5 +603,9 @@
         var marker = L.marker([22.114455731500307, -100.89206366483398]).addTo(map);
         marker.bindPopup('Este es el punto de interés.').openPopup();
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+     <script>
+         AOS.init();
+     </script>
 </body>
 </html>
