@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <title>Contacto</title>
     <style>
     body {
@@ -33,33 +35,23 @@
             padding: 10px 50px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    h1 {
+    h1  {
         font-family: 'Tangerine', serif;
             text-align: center;
             font-size: 4rem;
-            color: #5C3A57; /* Texto en tono que combina con el logotipo */
+            color: #E4007C; /* Texto en tono que combina con el logotipo */
             margin: 0;
             padding: 10px 0;
     }
-    .botones {
-    text-align: center;
-    padding-bottom: 10px;
+    h2{
+        font-family: 'Tangerine', serif;
+            text-align:left;
+            font-size: 4rem;
+            color: #E4007C; /* Texto en tono que combina con el logotipo */
+            margin: 0;
+            padding: 10px 0; 
     }
-    button {
-    background-color: #FFD1DC;
-    border: none;
-    border-radius: 20px;
-    color: #5C3A57;
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    }
-    button:hover {
-    background-color: #FABAC0;
-    transform: translateY(-3px);
-    }
+   
     .social-icons a {
     color: #5C3A57; /* Color del texto que combina con el logo */
     margin: 0 10px; /* Espacio horizontal entre iconos */
@@ -85,12 +77,108 @@
 .navbar-light .navbar-nav .nav-link:hover {
     color: #DAA1B0;
 }
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        border-color: #E4007C; /* Rosa para el toggler */
+    }
+}
+/* Media Query para ajustar el tamaño en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 60px; /* Altura más pequeña para dispositivos móviles */
+    }
+    .navbar {
+        min-height: 80px; /* Altura mínima ajustada para dispositivos móviles */
+    }
+}
+@media (max-width: 768px) {
+    .botones button {
+        font-size: 14px;
+        padding: 8px 10px;
+        margin: 3px; /* Reducir el margen para ahorrar espacio */
+    }
+}
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 100%; /* En dispositivos móviles, el carrusel puede ocupar todo el ancho */
+    }
+    .carousel-inner img {
+        max-height: 200px; /* Ajusta la altura máxima para dispositivos más pequeños */
+    }
+}
+@media (max-width: 768px) {
+    .texto-equipo, .imagen-equipo {
+        flex-direction: column; /* Cambia la dirección de flex a columna */
+        align-items: center;
+    }
+    .imagen-equipo img {
+        width: 80%; /* Ajustar el ancho para dispositivos más pequeños */
+    }
+}
+@media (max-width: 768px) {
+    .social-icons a {
+        font-size: 20px; /* Reducir el tamaño de los íconos para ahorrar espacio */
+        margin: 0 5px; /* Reducir el espacio entre íconos */
+    }
+}
+/* Botones con estilo principal */
+button, .submit-btn {
+    background-color: #E4007C; /* Rosa mexicano */
+    color: #FFFFFF; /* Texto en blanco */
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+button:hover, .submit-btn:hover {
+    background-color: #C30068; /* Oscurecimiento al hacer hover */
+}
+button {
+            background-color: #FFFFFF; /* Fondo blanco */
+             color: #E4007C; /* Texto rosa mexicano */
+             border: 2px solid #E4007C; /* Borde rosa mexicano */ /* Botones en tono rosa más suave del logotipo */
+           
+            border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
+           
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        /*Boton para haecr que se pinte cuando se esta en la pagina*/
+        button.active {
+            background-color: #C30068; /* Un tono más oscuro de rosa mexicano */
+    color: #FFFFFF; /* Texto en blanco para máxima legibilidad */
+    border: 2px solid #FFFFFF; /* Borde blanco para destacar el botón activo */
+}
+button:hover, button.active:hover {
+    background-color: #D60076; /* Un tono intermedio al hacer hover para suavizar la transición */
+    color: #FFFFFF; /* Texto blanco al hacer hover */
+    transform: translateY(-2px); 
+}
+/* Efectos adicionales para botones */
+button:hover, button:focus {
+    background-color: #E4007C;
+    border-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
 
+/* Efectos para links */
+a:hover {
+    text-decoration: underline;
+}
+.navbar-brand img {
+    height: 118px; /* Altura fija para todas las instancias de la imagen del logo en el navbar */
+    width: auto;  /* Mantiene la proporción de la imagen */
+}
     </style>
 </head>
 <body> <header>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
-            <a class="navbar-brand" href="#">Bella Vanidad</a>
+            <a class="navbar-brand" href="#">
+                <img src="vanidad.jpg" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
+            </a>  
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -111,6 +199,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="galeria.html"><button>Galería</button></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html"><button class="active">Contacto</button></a>
+                    </li>
                    
                 </ul>
             </div>
@@ -118,7 +209,7 @@
     </header>
     
     <br>
-    <div class="container mt-4">
+    <div class="container mt-4" data-aos="fade-up" data-aos-delay="250">
         <h2>Pedidos</h2>
         <p>Aquí puedes encontrar un formulario con nuestros productos (puedes ver la descripción de cada producto en la pestaña correspondiente), de tal manera que puedas generar un voucher y puedas ir a la tienda fisica y recoger tus productos.</p>
         <form id="pedidoForm">
@@ -182,5 +273,10 @@
             <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
+x
