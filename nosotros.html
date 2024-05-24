@@ -1,306 +1,428 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros - Bella Vanidad</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #F7F0F1;
-            color: #5C3A57;
-            margin: 0;
-            padding: 0;
-            padding-top: 50px;
-        }
-        h2 {
-            font-family: 'Tangerine', serif;
-            font-size: 4rem;
-            color: #5C3A57;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .nosotros-container, .testimonios-container, .galeria-container {
-        background-color: #FFF0F5;
-        padding: 50px;
-        text-align: center;
-    }
-    .equipo, .galeria-imagenes {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    .miembro, .testimonio, .imagen-galeria {
-        margin: 20px;
-        flex-basis: 20%;
-        text-align: center;
-    }
-    .miembro img, .galeria-imagenes img {
-        width: auto; /* Ajuste automático del ancho */
-        max-width: 100%; /* Máximo ancho del 100% */
-        height: auto; /* Altura automática para mantener la proporción */
-        border-radius: 50%;
-        margin-bottom: 15px;
-        transition: transform 0.3s ease-in-out;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .galeria-imagenes img {
-    border-radius: 10px; /* Bordes menos redondeados para la galería */
-    max-width: 20%; /* Ajuste del máximo ancho para las imágenes de la galería */
-    max-height: 500px; /* Añadido control de la altura máxima */
-    object-fit: cover; /* Asegura que la imagen cubra el área designada sin perder proporción */
-}
-
-    .miembro img:hover, .galeria-imagenes img:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-    }
-        button {
-            background-color: #FFD1DC;
-            border: none;
-            border-radius: 20px;
-            color: #5C3A57;
-            font-size: 16px;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        button:hover {
-            background-color: #FABAC0;
-            transform: translateY(-3px);
-        }
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #FFE8ED; /* Light pink background color of the logo */
-            z-index: 1000;
-            border-bottom: 2px solid #DAA1B0; /* Darker pink border tone */
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 50px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-family: 'Tangerine', serif;
-            text-align: center;
-            font-size: 4rem;
-            color: #5C3A57;
-            margin: 0;
-            padding: 10px 0;
-        }
-        @media (max-width: 768px) {
-            .social-icons a {
-                font-size: 20px;
-                margin: 0 5px;
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre Nosotros - Bella Vanidad</title>
+        <link rel="icon" href="logo.jpg" type="image/png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
+        <meta name="keywords" content="cortes, uñas, cejas, pestañas, peinados, tintes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+        <style>
+            body {
+                font-family: 'Raleway', sans-serif;
+                background-color: #F7F0F1;
+                color: #5C3A57;
+                margin: 0;
+                padding: 0;
+                padding-top: 50px;
             }
+            h2 {
+                font-family: 'Tangerine', serif;
+                font-size: 4rem;
+                color: #E4007C;            
+                margin-bottom: 20px;
+                text-align: center;
+    
+}
+            
+            .nosotros-container, .testimonios-container, .galeria-container {
+            background-color: #FFF0F5;
+            padding: 50px;
+            text-align: center;
         }
-        .social-icons a {
-            color: #5C3A57;
-            margin: 0 10px;
-            font-size: 24px;
+        .equipo, .galeria-imagenes {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
+        .miembro, .testimonio, .imagen-galeria {
+            margin: 20px;
+            flex-basis: 20%;
+            text-align: center;
+        }
+        .miembro img, .galeria-imagenes img {
+            width: auto; /* Ajuste automático del ancho */
+            max-width: 100%; /* Máximo ancho del 100% */
+            height: auto; /* Altura automática para mantener la proporción */
+            border-radius: 50%;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .galeria-imagenes img {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor padre para mantener la proporción */
+    max-width: 20%; /* Ajuste del máximo ancho para las imágenes de la galería */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 10px; /* Bordes menos redondeados para la galería */
+    object-fit: cover; /* Asegura que la imagen cubra el área designada sin perder proporción */
+    transition: transform 0.3s ease-in-out; /* Transición suave para efectos hover */
+}
 
-        .social-icons a:hover {
-            color: #DAA1B0;
+/* Reglas para dispositivos móviles */
+@media (max-width: 768px) {
+    .galeria-imagenes img {
+        max-width: 50%; /* Aumenta el ancho máximo para una mejor visualización en pantallas pequeñas */
+    }
+}
+
+/* Reglas para dispositivos muy pequeños */
+@media (max-width: 480px) {
+    .galeria-imagenes img {
+        max-width: 100%; /* Ocupa todo el ancho disponible para pantallas muy pequeñas */
+    }
+}
+
+        .miembro img:hover, .galeria-imagenes img:hover {
             transform: scale(1.1);
-            transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
-        .imagen-local img {
-            width: 100%; /* Ajusta esto según tus necesidades para que se vea bien en tu diseño */
-            max-width: 600px; /* Limita el tamaño máximo de la imagen */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 10px; /* Bordes redondeados para la imagen */
-            margin: 20px 0; /* Margen para separar del texto y otros elementos */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar la imagen */
-            display: block; /* Asegura que la imagen se trate como un bloque */
-            margin-left: auto; /* Centra la imagen horizontalmente */
-            margin-right: auto;
-        }
-        .testimonial-section {
-            background-color: #fff;
-            padding: 40px 0;
-        }
-        .testimonial-item {
-            background-color: #F7F0F1;
-            border: 1px solid #DAA1B0;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-        .navbar-brand {
-    font-family: 'Tangerine', serif;
-    color: #5C3A57;
-    font-size: 2.5rem;
-}
-
-.nav-link {
-    color: #5C3A57;
-    font-size: 1.2rem;
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-    color: #DAA1B0;
-}
-
-    </style>
-</head>
-<body>
-     <header>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
-            <a class="navbar-brand" href="#">Bella Vanidad</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><button>Inicio</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.html"><button>Servicios</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="productos.html"><button>Productos</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="galeria.html"><button>Galería</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html"><button>Contacto</button></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <hr>
-    <hr>
-    <section id="nosotros">
-        
-        <div class="nosotros-container">
-           <br>
-           <div class="container">
-            <section>
-                <br>
-                <h2>Historia de Bella Vanidad</h2>
-                <p class="historia">
-                    Bella Vanidad abrió sus puertas en octubre de 2021, ubicado siempre en la misma zona querida por nuestra fundadora Elizabeth Ramírez. Elizabeth, tras años de estudio y experiencia en otros salones, decidió emprender su propio camino en un pequeño local que con el tiempo se ha transformado en el vibrante y espacioso salón que es hoy.
-                </p>
-                <div class="imagen-local">
-                <img src="estetica.jpeg" alt="Vista del Local de Bella Vanidad">
-                <p class="historia">
-                    Desde sus inicios, el salón ofrecía servicios que Elizabeth había perfeccionado, como cortes, peinados, coloración y tratamientos capilares. Con el tiempo, se especializó aún más en servicios como extensiones de pestañas y tratamientos avanzados de cabello, ampliando constantemente su oferta gracias a la formación continua.
-                </p>
-                <p class="historia">
-                    A medida que Bella Vanidad crecía, pasó de ser un emprendimiento individual a contar con un equipo dedicado de estilistas. Elizabeth ha hecho de la capacitación continua una piedra angular del salón, asegurando que todo el equipo esté a la vanguardia de las tendencias y técnicas del cuidado personal.
-                </p>
-                <p class="historia">
-                    Hoy, Bella Vanidad no solo es reconocido por la calidad de sus servicios, sino también por el ambiente acogedor y profesional que ofrece a todos sus clientes, desde la recepción hasta la finalización de cada servicio.
-                </p>
-                <p class="historia">
-                    Si quieres ver cómo hemos cambiado a lo largo de los años, te invitamos a visitar nuestra galería o pasar por nuestro salón para experimentar el servicio excepcional que nos define.
-                </p>
-            </section>
-        </div>
+        button {
+                background-color: #FFFFFF; /* Fondo blanco */
+                color: #E4007C; /* Texto rosa mexicano */
+                border: 2px solid #E4007C; /* Borde rosa mexicano */ /* Botones en tono rosa más suave del logotipo */
             
-                
-            </div>
+                border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
             
-            <div class="equipo">
-                <div class="miembro">
-                    <img src="elizabethSobreNosotros.jpg" alt="Elizabeth Ramírez, Fundadora y Estilista Principal">
-                    <h3>Elizabeth Ramírez</h3>
-                    <p>Elizabeth Ramírez, fundadora de Bella Vanidad, destaca por su especialización en coloración avanzada y estilismo personalizado desde 2021, enfocándose en realzar la belleza y personalidad natural de cada cliente.</p>
+                font-size: 18px;
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+            
+            /*Boton para haecr que se pinte cuando se esta en la pagina*/
+            button.active {
+                background-color: #C30068; /* Un tono más oscuro de rosa mexicano */
+        color: #FFFFFF; /* Texto en blanco para máxima legibilidad */
+        border: 2px solid #FFFFFF; /* Borde blanco para destacar el botón activo */
+    }
+    button:hover, button.active:hover {
+        background-color: #D60076; /* Un tono intermedio al hacer hover para suavizar la transición */
+        color: #FFFFFF; /* Texto blanco al hacer hover */
+        transform: translateY(-2px); 
+    }
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #FFE8ED; /* Light pink background color of the logo */
+                z-index: 1000;
+                border-bottom: 2px solid #DAA1B0; /* Darker pink border tone */
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 50px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                font-family: 'Tangerine', serif;
+                text-align: center;
+                font-size: 4rem;
+                color: #5C3A57;
+                margin: 0;
+                padding: 10px 0;
+            }
+            @media (max-width: 768px) {
+                .social-icons a {
+                    font-size: 20px;
+                    margin: 0 5px;
+                }
+            }
+            .social-icons a {
+                color: #5C3A57;
+                margin: 0 10px;
+                font-size: 24px;
+            }
 
+            .social-icons a:hover {
+                color: #DAA1B0;
+                transform: scale(1.1);
+                transition: color 0.3s ease, transform 0.3s ease;
+            }
+            .imagen-local img {
+                width: 100%; /* Ajusta esto según tus necesidades para que se vea bien en tu diseño */
+                max-width: 600px; /* Limita el tamaño máximo de la imagen */
+                height: auto; /* Mantiene la proporción de la imagen */
+                border-radius: 10px; /* Bordes redondeados para la imagen */
+                margin: 20px 0; /* Margen para separar del texto y otros elementos */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar la imagen */
+                display: block; /* Asegura que la imagen se trate como un bloque */
+                margin-left: auto; /* Centra la imagen horizontalmente */
+                margin-right: auto;
+            }
+            .testimonial-section {
+                background-color: #fff;
+                padding: 40px 0;
+            }
+            .testimonial-item {
+                background-color: #F7F0F1;
+                border: 1px solid #DAA1B0;
+                padding: 20px;
+                border-radius: 10px;
+                margin: 10px 0;
+            }
+            .navbar-brand {
+        font-family: 'Tangerine', serif;
+        color: #5C3A57;
+        font-size: 2.5rem;
+    }
+
+    .nav-link {
+        color: #5C3A57;
+        font-size: 1.2rem;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #DAA1B0;
+    }
+    .welcome-message {
+    font-family: 'Tangerine', serif; /* Mantenemos la coh   erencia con el estilo de la página */
+    font-size: 90px; /* Aumentamos el tamaño de la fuente para mayor visibilidad */
+    color: #FFFFFF; /* Texto en color blanco para alto contraste */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6); /* Sombra de texto para mejorar la legibilidad sobre el fondo desenfocado */
+    text-align: center;
+    position: relative; /* Asegura que el texto esté sobre el fondo desenfocado */
+    padding: 20px;
+    border-radius: 10px;
+    
+    animation: appear 3s ease-out forwards;
+        }
+        @keyframes appear{
+            0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+        }
+        .full-page-background {
+    position: relative; /* Posiciona relativo para que el pseudo-elemento se base en este contenedor */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-page-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('estetica.jpeg'); /* Asegúrate de poner la URL correcta */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px); /* Desenfoca el fondo */
+    z-index: -1; /* Mantiene el fondo detrás del contenido */
+}
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 60px; /* Altura más pequeña para dispositivos móviles */
+    }
+    .navbar {
+        min-height: 80px; /* Altura mínima ajustada para dispositivos móviles */
+    }
+}
+@media (max-width: 768px) {
+    .botones button {
+        font-size: 14px;
+        padding: 8px 10px;
+        margin: 3px; /* Reducir el margen para ahorrar espacio */
+    }
+}
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 100%; /* En dispositivos móviles, el carrusel puede ocupar todo el ancho */
+    }
+    .carousel-inner img {
+        max-height: 200px; /* Ajusta la altura máxima para dispositivos más pequeños */
+    }
+}
+@media (max-width: 768px) {
+    .texto-equipo, .imagen-equipo {
+        flex-direction: column; /* Cambia la dirección de flex a columna */
+        align-items: center;
+    }
+    .imagen-equipo img {
+        width: 80%; /* Ajustar el ancho para dispositivos más pequeños */
+    }
+}
+@media (max-width: 768px) {
+    .social-icons a {
+        font-size: 20px; /* Reducir el tamaño de los íconos para ahorrar espacio */
+        margin: 0 5px; /* Reducir el espacio entre íconos */
+    }
+}
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
+                <a class="navbar-brand" href="#">
+                    <img src="vanidad.jpg" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
+                </a>  
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><button>Inicio</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html"><button class="active">Nosotros</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicios.html"><button>Servicios</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html"><button>Productos</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="galeria.html"><button>Galería</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html"><button>Contacto</button></a>
+                        </li>
+                    </ul>
                 </div>
-                 <div class="equipo">
-                <div class="miembro">
-                    <img src="miriam.jpeg" alt="Nombre Miembro 1">
-                    <h3>Miriam Ramírez </h3>
-                    <p>Especialista en el sector de estelista</p>
-                </div>
-                <div class="miembro">
-                    <img src="MiaEstelista.jpeg" alt="Nombre Miembro 1">
-                    <h3>Mía Huerta</h3>
-                    <p>Especialista en el sector de estelista</p>
-                </div>
-                <!-- Agregar más miembros según sea necesario -->
+            </nav>
+        </header>
+        <div class="full-page-background">
+            <div class="welcome-message">
+                Historia de Bella Vanidad<br>
+                <small>Tu belleza, nuestra pasión.</small>
             </div>
         </div>
-    </section>
-    <!-- Sección de Testimonios -->
-    <section class="testimonial-section">
-        <div class="container">
-            <h2>Testimonios de Nuestros Clientes</h2>
-            <div class="testimonial-item">
-                <p>Ayer por la tarde toco autocuidado de imagen!!, día de retoque de tinte, depilación, retoque de uñas, etc. Nos hicimos la tarde amena con unas deliciosas raspas y una excelente plática!!, también aprovecho para recomendar a Elizabeth Ramírez una excelente estilista, maquillista y diseño de tu imagen!!. 
-                    Además de ser super buena en su trabajo es una maravillosa persona!!! - Karyna Oviedo Caro</p>
-            </div>
-            <div class="testimonial-item">
-                <p>Estás depresiva ve córtate el pelo échate la platica muy buena ya la otra semana tinte uñas y no se que más - Danny Breceda</p>
-            </div>
-            <div class="testimonial-item">
-                <p>Ame mis uñas y su personal muy amable 🙂- Fátima Guerrero</p>
-            </div>
-            <div class="testimonial-item">
-                <p>Las mejores en todooo,excelente servicio y muy buena atención 🤍- Mia Huerta</p>
-            </div>
-            <div class="testimonial-item">
-                <p>Excelente servicio , satisfecha con mi cabello 🤩🤩🤩⭐⭐⭐⭐⭐  muy profesional, gracias <strong>Resultados asombrosos·Estilistas con experiencia</strong> -Yanet Dom </p>
-            </div>
-            <div class="testimonial-item">
-                <p>Excelente servicio 🌟🌟🌟🌟🌟.Estilistas con experiencia - Martha Castillo</p>
-            </div>
-            <div class="testimonial-item">
-                <p>Exelente servicio ✨ y trato al cliente✨✨- Miriam Ramirez </p>
-            </div>
-            <div class="testimonial-item">
-                <p>Super profesional con el cuidado y resultado del cabello... ha cumplido todas mis espectativas cada que pido un estilo diferente. 👧👧🏼👧🏻👌<strong>Estilista experta</strong> - Korina Luzchiano</p>
-            </div>
-            <div class="testimonial-item">
-                <p>Recomiendo su exelente trabajo y su exelente trato, si vas una vez ya no dejaras de ir !!!- Maria Emilia Tovar Rojas</p>
-            </div>
-            <div class="testimonial-item">
-                <p> Recomiendo mucho el salón, ya que te atienden amablemente y sus trabajos son muy bonitos🙊😍 además de que siempre cuidan mucho tu cabello y utilizan productos de excelente calidad. 💖🙊
-                    Acudan y no se arrepentirán del resultado 🌸🌹💜 - Kattia Arriaga</p>
-            </div>
-        </div>
-    </section>
-    <!-- Galería Interactiva -->
-    <section id="galeria" style="padding: 50px; text-align: center;">
-        <h2>Nuestro Trabajo</h2>
-        <div class="galeria-container">
-            <div class="galeria-imagenes">
-                <img src="Uñas-manicura-pedicura/IMG_1470.JPG" alt="Trabajo 1">
-                <img src="Depilación/ECDA0D06-FCE8-42C5-A8E9-46F1AA6022EF.jpeg" alt="Trabajo 2">
-                <img src="Efectos de color-Tintes-Retoques de tinte-mechas/IMG_1578.JPG" alt="Trabajo 3">
-                <!-- Agregar más imágenes según sea necesario -->
-            </div>
+
+        <section id="nosotros" data-aos="fade-up" data-aos-delay="200">
+            
+            <div class="nosotros-container" data-aos="fade-up" data-aos-delay="300">
             <br>
-        <h4>Más información en el apartado de servicios</h4>
-        </div>
-    </section>
-    <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
-        <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
-        <p>Síguenos en nuestras redes sociales.</p>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a"></a>
-        </div>
-        </footer>
-        <script>
-        // Aquí puedes agregar cualquier script de JavaScript que necesites
-        // Por ejemplo, para inicializar la galería interactiva o agregar funcionalidades específicas a los botones
-        </script>
-        
-        </body> </html> 
+            <div class="container">
+                <section data-aos="fade-up" data-aos-delay="200">
+
+                    <p class="historia">
+                        Bella Vanidad abrió sus puertas en octubre de 2021, ubicado siempre en la misma zona querida por nuestra fundadora Elizabeth Ramírez. Elizabeth, tras años de estudio y experiencia en otros salones, decidió emprender su propio camino en un pequeño local que con el tiempo se ha transformado en el vibrante y espacioso salón que es hoy.
+                    </p>
+                    <div class="imagen-local">
+                    
+                    <p class="historia">
+                        Desde sus inicios, el salón ofrecía servicios que Elizabeth había perfeccionado, como cortes, peinados, coloración y tratamientos capilares. Con el tiempo, se especializó aún más en servicios como extensiones de pestañas y tratamientos avanzados de cabello, ampliando constantemente su oferta gracias a la formación continua.
+                    </p>
+                    <p class="historia">
+                        A medida que Bella Vanidad crecía, pasó de ser un emprendimiento individual a contar con un equipo dedicado de estilistas. Elizabeth ha hecho de la capacitación continua una piedra angular del salón, asegurando que todo el equipo esté a la vanguardia de las tendencias y técnicas del cuidado personal.
+                    </p>
+                    <p class="historia">
+                        Hoy, Bella Vanidad no solo es reconocido por la calidad de sus servicios, sino también por el ambiente acogedor y profesional que ofrece a todos sus clientes, desde la recepción hasta la finalización de cada servicio.
+                    </p>
+                    <p class="historia">
+                        Si quieres ver cómo hemos cambiado a lo largo de los años, te invitamos a visitar nuestra galería o pasar por nuestro salón para experimentar el servicio excepcional que nos define.
+                    </p>
+                </section>
+            </div>
+                
+                    
+                </div>
+                
+                <div class="equipo" data-aos="fade-up" data-aos-delay="200">
+                    <div class="miembro">
+                        <img src="elizabethSobreNosotros.jpg" alt="Elizabeth Ramírez, Fundadora y Estilista Principal">
+                        <h3>Elizabeth Ramírez</h3>
+                        <p>Elizabeth Ramírez, fundadora de Bella Vanidad, destaca por su especialización en coloración avanzada y estilismo personalizado desde 2021, enfocándose en realzar la belleza y personalidad natural de cada cliente.</p>
+
+                    </div>
+                    <div class="equipo">
+                    <div class="miembro">
+                        <img src="miriam.jpeg" alt="Nombre Miembro 1">
+                        <h3>Miriam Ramírez </h3>
+                        <p>Especialista en el sector de estelista</p>
+                    </div>
+                    <div class="miembro">
+                        <img src="MiaEstelista.jpeg" alt="Nombre Miembro 1">
+                        <h3>Mía Huerta</h3>
+                        <p>Especialista en el sector de estelista</p>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- Sección de Testimonios -->
+        <section class="testimonial-section" data-aos="fade-up" data-aos-delay="400">
+            <div class="container">
+                <h2>Testimonios de Nuestros Clientes</h2>
+                <div class="testimonial-item">
+                    <p>Ayer por la tarde toco autocuidado de imagen!!, día de retoque de tinte, depilación, retoque de uñas, etc. Nos hicimos la tarde amena con unas deliciosas raspas y una excelente plática!!, también aprovecho para recomendar a Elizabeth Ramírez una excelente estilista, maquillista y diseño de tu imagen!!. 
+                        Además de ser super buena en su trabajo es una maravillosa persona!!! - Karyna Oviedo Caro</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Estás depresiva ve córtate el pelo échate la platica muy buena ya la otra semana tinte uñas y no se que más - Danny Breceda</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Ame mis uñas y su personal muy amable 🙂- Fátima Guerrero</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Las mejores en todooo,excelente servicio y muy buena atención 🤍- Mia Huerta</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Excelente servicio , satisfecha con mi cabello 🤩🤩🤩⭐⭐⭐⭐⭐  muy profesional, gracias <strong>Resultados asombrosos·Estilistas con experiencia</strong> -Yanet Dom </p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Excelente servicio 🌟🌟🌟🌟🌟.Estilistas con experiencia - Martha Castillo</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Exelente servicio ✨ y trato al cliente✨✨- Miriam Ramirez </p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Super profesional con el cuidado y resultado del cabello... ha cumplido todas mis espectativas cada que pido un estilo diferente. 👧👧🏼👧🏻👌<strong>Estilista experta</strong> - Korina Luzchiano</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Recomiendo su exelente trabajo y su exelente trato, si vas una vez ya no dejaras de ir !!!- Maria Emilia Tovar Rojas</p>
+                </div>
+                <div class="testimonial-item">
+                    <p> Recomiendo mucho el salón, ya que te atienden amablemente y sus trabajos son muy bonitos🙊😍 además de que siempre cuidan mucho tu cabello y utilizan productos de excelente calidad. 💖🙊
+                        Acudan y no se arrepentirán del resultado 🌸🌹💜 - Kattia Arriaga</p>
+                </div>
+            </div>
+        </section>
+        <!-- Galería Interactiva -->
+        <section id="galeria" style="padding: 50px; text-align: center;" data-aos="fade-up" data-aos-delay="600">
+            <h2>Nuestro Trabajo</h2>
+            <div class="galeria-container">
+                <div class="galeria-imagenes">
+                    <img src="Uñas-manicura-pedicura/IMG_1470.JPG" alt="Trabajo 1">
+                    <img src="Depilación/ECDA0D06-FCE8-42C5-A8E9-46F1AA6022EF.jpeg" alt="Trabajo 2">
+                    <img src="Efectos de color-Tintes-Retoques de tinte-mechas/IMG_1578.JPG" alt="Trabajo 3">
+                    <!-- Agregar más imágenes según sea necesario -->
+                </div>
+                <br>
+            <h4>Más información en el apartado de servicios</h4>
+            </div>
+        </section>
+        <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
+            <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
+            <p>Síguenos en nuestras redes sociales.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a"></a>
+            </div>
+            </footer>
+            <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+               <script>
+               AOS.init();
+
+            </script>
+            </body> </html> 
