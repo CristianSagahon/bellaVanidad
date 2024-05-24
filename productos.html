@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-x   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <title>Productos</title>
  <style>
     body {
@@ -39,29 +39,70 @@ x
         font-family: 'Tangerine', serif;
             text-align: center;
             font-size: 5rem;
-            color: #5C3A57; /* Texto en tono que combina con el logotipo */
+            color: #E4007C; /* Texto en tono que combina con el logotipo */
             margin: 0;
             padding: 10px 0;
     }
     .botones {
-    text-align: center;
-    padding-bottom: 10px;
-    }
-    button {
-    background-color: #FFD1DC; /* Botones en tono rosa más suave del logotipo */
-    border: none;
-    border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
-    color: #5C3A57; /* Texto en tono que combina con el logotipo */
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        
+/* Botones con estilo principal */
+button, .submit-btn {
+    background-color: #E4007C; /* Rosa mexicano */
+    color: #FFFFFF; /* Texto en blanco */
+    border-radius: 20px;
     transition: background-color 0.3s, transform 0.3s;
-    }
-    button:hover {
-    background-color: #FABAC0; /* Color al pasar el ratón por encima, un tono intermedio */
-    transform: translateY(-3px); /* Ligero efecto al pasar el ratón por encima */
-    }
+}
+
+button:hover, .submit-btn:hover {
+    background-color: #C30068; /* Oscurecimiento al hacer hover */
+}
+button {
+            background-color: #FFFFFF; /* Fondo blanco */
+             color: #E4007C; /* Texto rosa mexicano */
+             border: 2px solid #E4007C; /* Borde rosa mexicano */ /* Botones en tono rosa más suave del logotipo */
+           
+            border-radius: 20px; /* Más redondeado para emular la forma del logotipo */
+           
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        /*Boton para haecr que se pinte cuando se esta en la pagina*/
+        button.active {
+            background-color: #C30068; /* Un tono más oscuro de rosa mexicano */
+    color: #FFFFFF; /* Texto en blanco para máxima legibilidad */
+    border: 2px solid #FFFFFF; /* Borde blanco para destacar el botón activo */
+}
+button:hover, button.active:hover {
+    background-color: #D60076; /* Un tono intermedio al hacer hover para suavizar la transición */
+    color: #FFFFFF; /* Texto blanco al hacer hover */
+    transform: translateY(-2px); 
+}
+button:hover, button:focus {
+    background-color: #E4007C;
+    border-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efectos para links */
+a:hover {
+    text-decoration: underline;
+}
+        .navbar-light .navbar-nav .nav-link {
+    color: #E4007C; /* Rosa mexicano para enlaces */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #C30068; /* Variante más oscura del rosa para hover */
+}
+
+
 
     .container {
     display: flex;
@@ -124,12 +165,53 @@ x
     color: #5C3A57;
     font-size: 3rem;
 }
+/* Media Query para ajustar el tamaño en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 60px; /* Altura más pequeña para dispositivos móviles */
+    }
+    .navbar {
+        min-height: 80px; /* Altura mínima ajustada para dispositivos móviles */
+    }
+}
+@media (max-width: 768px) {
+    .botones button {
+        font-size: 14px;
+        padding: 8px 10px;
+        margin: 3px; /* Reducir el margen para ahorrar espacio */
+    }
+}
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 100%; /* En dispositivos móviles, el carrusel puede ocupar todo el ancho */
+    }
+    .carousel-inner img {
+        max-height: 200px; /* Ajusta la altura máxima para dispositivos más pequeños */
+    }
+}
+@media (max-width: 768px) {
+    .texto-equipo, .imagen-equipo {
+        flex-direction: column; /* Cambia la dirección de flex a columna */
+        align-items: center;
+    }
+    .imagen-equipo img {
+        width: 80%; /* Ajustar el ancho para dispositivos más pequeños */
+    }
+}
+@media (max-width: 768px) {
+    .social-icons a {
+        font-size: 20px; /* Reducir el tamaño de los íconos para ahorrar espacio */
+        margin: 0 5px; /* Reducir el espacio entre íconos */
+    }
+}
  </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
-            <a class="navbar-brand" href="#">Bella Vanidad</a>
+            <a class="navbar-brand" href="#">
+                <img src="vanidad.jpg" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
+            </a>        
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -144,6 +226,9 @@ x
                     <li class="nav-item">
                         <a class="nav-link" href="servicios.html"><button>Servicios</button></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><button class="active">Productos</button></a>
+                    </li>
                    
                     <li class="nav-item">
                         <a class="nav-link" href="galeria.html"><button>Galería</button></a>
@@ -155,54 +240,57 @@ x
             </div>
         </nav>
     </header>
+    <br>
+    <br>
+   
     <h1>Productos</h1>
      <br>
      <br>
    
-    <div class="container">
-        <div class="card">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
             <div class="price">$460.00</div>
             <img src="italyblue.jpg" alt="Imagen 1">
             <h3>Tec Italy Due Faccetta Massimo</h3>
             <p>Tec Italy Due Faccetta Massimo es un tratamiento capilar de doble acción diseñado para proporcionar una reparación intensiva y revitalización profunda del cabello dañado. Este innovador producto combina la tecnología avanzada de Tec Italy con ingredientes de alta calidad para ofrecer resultados visibles desde la primera aplicación.</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
             <div class="price">$440.00</div>
             <img src="8e63d711-f46b-4a55-a1e8-8cc5616e02ca.jpg" alt="Imagen 2">
             <h3>Tec Italy Olio Vital Color</h3>
             <p>Tec Italy Olio Vital Color es un tratamiento especializado diseñado para proteger y prolongar la vida del color en el cabello teñido. Este producto combina aceites naturales y tecnologías avanzadas para mantener la intensidad y el brillo del color, mientras nutre y acondiciona profundamente el cabello</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="800">
             <div class="price">$420.00</div>
             <img src="pravanapurple.jpg" alt="Imagen 3">
             <h3>Pravana The Perfect Blonde Purple Toning Conditioner</h3>
             <p>Pravana The Perfect Blonde Purple Toning Conditioner es un acondicionador especializado diseñado para neutralizar los tonos amarillos y dorados no deseados en el cabello rubio, canoso o decolorado. Enriquecido con ingredientes hidratantes y pigmentos violeta intensos, este acondicionador no solo mantiene el color rubio fresco y vibrante, sino que también mejora la salud y el brillo del cabello</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="1000">
             <div class="price">$290.00</div>
             <img src="italybrown.jpg" alt="Imagen 4">
             <h3>Tec Italy Lumina Shampoo</h3>
             <p>Tec Italy Lumina Shampoo es un limpiador diseñado para realzar y mantener la luminosidad del cabello rubio, plateado y decolorado. Su fórmula avanzada neutraliza tonos amarillos y dorados no deseados, hidrata y fortalece el cabello, dejándolo suave, manejable y con un brillo radiante. Ideal para uso regular, protege el color y mejora la salud del cabello desde la primera aplicación</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="1200">
             <div class="price">$320.00</div>
             <img src="pravananevo.jpg" alt="Imagen 5">
             <h3>Pravana Nevo Reparative Shampoo</h3>
             <p>Pravana Nevo Reparative Shampoo es un limpiador nutritivo que repara y fortalece el cabello dañado. Enriquecido con proteínas y aceites naturales, restaura la salud y vitalidad del cabello, dejándolo suave, manejable y con un brillo saludable. Ideal para uso regular en cabellos debilitados por tratamientos químicos y el uso de herramientas de calor</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
             <div class="price">$480.00</div>
             <img src="nashi.jpg" alt="Imagen 6">
             <h3>Nashi Armonia Shampoo</h3>
             <p>Nashi Armonia Shampoo es un limpiador suave que hidrata y revitaliza el cabello. Enriquecido con aceites naturales, deja el cabello suave, manejable y con un brillo saludable. Ideal para uso diario, protege y nutre el cabello, mejorando su salud y apariencia general</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
             <div class="price">$420.00</div>
             <img src="pravananevodeep.jpg" alt="Imagen 7">
             <h3>Pravana Nevo Deep Therapy Mask</h3>
             <p>Pravana Nevo Deep Therapy Mask es un tratamiento intensivo que repara y nutre profundamente el cabello dañado. Enriquecido con aceites naturales y proteínas, restaura la hidratación, fuerza y brillo, dejando el cabello suave y manejable. Ideal para usar semanalmente en cabellos secos o debilitados</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
             <div class="price">$380.00</div>
             <img src="pravanaintense.jpg" alt="Imagen 8">
             <h3>Pravana Intense Therapy Treat</h3>
@@ -219,5 +307,9 @@ x
             <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
