@@ -15,16 +15,79 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 <title>Galería</title>
 <style>
-  body {
-    font-family: 'Raleway', sans-serif;
-    background-color: #F7F0F1; /* Fondo crema suave que combina con el logotipo */
-    color: #5C3A57; /* Texto en tono que combina con el logotipo */
-    margin: 0;
-    padding: 0;
-    padding-top: 120px; /* Espacio para la barra de navegación fija */
-  }
-  header {
-    position: fixed;
+      body  {
+            font-family: 'Raleway', sans-serif;
+            background-color: #F7F0F1;
+            color: #5C3A57;
+            margin: 0;
+            height: 100%;
+            padding: 50px 0;
+        }
+       
+        
+        .servicios-container {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+            margin: 10px;
+            margin-bottom: 65px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .flip-card-front {
+            background-color: #FFF0F5;
+            color: black;
+            z-index: 2;
+            border-radius: 10px;
+        }
+        .flip-card-back {
+            background-color: #5C3A57;
+            color: white;
+            transform: rotateY(180deg);
+            z-index: 1;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .imglogo{
+            border-radius: 10px 10px 0 0;
+            height: min-content;
+            width: min-content;
+        }
+        .contenedortop{
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            background-color: #FFE8ED; /* Color de fondo rosado claro del logotipo */
+            z-index: 1000;
+            border: 2px groove #DAA1B0; /* Bordes inferiores en tono rosa más oscuro */
+        }
+        header {
+            position: fixed;
             top: 0;
             width: 100%;
             background-color: rgba(255, 232, 237, 0.95); /* Ligeramente transparente */
@@ -34,83 +97,35 @@
             justify-content: space-between;
             padding: 10px 50px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    font-family: 'Tangerine', serif;
-    text-align: center;
-    font-size: 4rem;
-    color: #E4007C; /* Texto en tono que combina con el logotipo */
-    margin: 0;
-    padding: 10px 0;
-  }
-  
-  .carousel {
-  position: relative;
-  }
-
-  .slide {
-  display: none;
-  }
-
-  .prev, .next {
-  position:absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  }
-
-  .prev {
-  left: 0;
-  }
-
-  .next {
-  right: 0;
-  }
-  img{
-  margin: 0 auto;
-  width: 350px;
-  height: 350px;
-  }
-  .social-icons {
-    text-align: center;
-    margin-top: 20px;
-  }
-  .social-icons a {
-    color: #5C3A57; /* Color del texto que combina con el logo */
-    margin: 0 10px; /* Espacio horizontal entre iconos */
-    font-size: 24px; /* Tamaño de los iconos */
-  }
-
-.social-icons a:hover {
-    color: #DAA1B0; /* Color al pasar el ratón por encima */
-    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
-    transition: color 0.3s ease, transform 0.3s ease;
-  } 
-  .navbar {
-    padding: 10px 20px; /* Ajusta el padding si es necesario */
-    min-height: 100px; /* Ajusta la altura mínima para el nuevo tamaño del logo */
+        }
+        h1 {
+            font-family: 'Tangerine', serif;
+            text-align: center;
+            font-size: 7rem;
+            color: #E4007C; 
+            margin: 0;
+            padding: 10px 0;
+        }
+        h3{
+            font-family: 'Tangerine', serif;
+            text-align: center;
+            font-size: 3rem;
+            color: #d00ba5; 
+            margin: 0;
+            padding: 10px 0; 
+        }
+        .botones {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .navbar-light .navbar-nav .nav-link {
+    color: #E4007C; /* Rosa mexicano para enlaces */
 }
 
-.navbar-brand {
-    font-family: 'Tangerine', serif;
-    color: #5C3A57;
-    font-size: 2.5rem;
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #C30068; /* Variante más oscura del rosa para hover */
 }
 
-.nav-link {
-    color: #FFFFFF;
-    font-size: 1.2rem;
-}
-
-.navbar-light .navbar-nav  {
-    color: #DAA1B0;
-}
-.nav-link:hover {
-    color: #FABAC0; /* Enlaces en rosa más claro al pasar el ratón */
-}
-.navbar-toggler {
-    border-color: #FFFFFF; /* Borde del toggler en blanco para contraste */
-}
 /* Botones con estilo principal */
 button, .submit-btn {
     background-color: #E4007C; /* Rosa mexicano */
@@ -147,23 +162,33 @@ button:hover, button.active:hover {
     color: #FFFFFF; /* Texto blanco al hacer hover */
     transform: translateY(-2px); 
 }
-/* Efectos adicionales para botones */
-button:hover, button:focus {
-    background-color: #E4007C;
-    border-color: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Efectos para links */
-a:hover {
-    text-decoration: underline;
-}
-
-/* Ajustes responsivos */
 @media (max-width: 768px) {
-    .navbar-toggler {
-        border-color: #E4007C; /* Rosa para el toggler */
-    }
+            .social-icons a {
+                font-size: 20px;
+                margin: 0 5px;
+            }
+        }
+.social-icons a {
+            color: #5C3A57;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #DAA1B0;
+            transform: scale(1.1);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }    
+        .nav-link {
+    color: #5C3A57; /* Personaliza el color de los enlaces */
+}
+.nav-link:hover {
+    color: #DAA1B0; /* Color al pasar el ratón por encima */
+}
+.navbar-brand {
+    font-family: 'Tangerine', serif;
+    color: #5C3A57;
+    font-size: 3rem;
 }
 /* Media Query para ajustar el tamaño en dispositivos más pequeños */
 @media (max-width: 768px) {
@@ -204,35 +229,82 @@ a:hover {
         margin: 0 5px; /* Reducir el espacio entre íconos */
     }
 }
-.navbar-brand img {
-    height: 118px; /* Altura fija para todas las instancias de la imagen del logo en el navbar */
-    width: auto;  /* Mantiene la proporción de la imagen */
-}
-</style>
-<script>
-  let slideIndex = 1;
 
-function showSlide(n) {
-  let slides = document.getElementsByClassName("slide");
-  if (n > slides.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = slides.length }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+.carousel {
+    position: relative;
   }
-  slides[slideIndex - 1].style.display = "block";
+  .slide {
+    display: none;
+  }
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-20%);
+    cursor: pointer;
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  img {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+  }
+  .iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 80%; /* Mantén el ancho reducido para ajustar al diseño */
+    max-width: 560px; /* Mantiene un ancho máximo razonable */
+    margin: 0 auto; /* Elimina el margen vertical para reducir el espacio entre iframes */
+    padding-top: 30%; /* Reduce la proporción de altura para que los iframes no sean tan altos */
 }
 
-function plusSlides(n) {
-  showSlide(slideIndex += n);
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px; /* Bordes redondeados para estética */
 }
-</script>
-</head>
-<body>
- <header>
+
+
+  @media (max-width: 768px) {
+    .iframe-container {
+      padding-top: 60%; /* Aumenta la relación de aspecto en pantallas más pequeñas */
+      width: 95%; /* Permite que el iframe sea un poco más ancho en pantallas pequeñas */
+    }
+  }
+  </style>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("slide");
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+           slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+  
+    showSlides(); // Initialize slide show
+  });
+
+  </script>
+  </head>
+  <>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFE8ED;">
-          <a class="navbar-brand" href="#">
-            <img src="vanidad1.png" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
-        </a>  
+            <a class="navbar-brand" href="#">
+                <img class="imglogo" src="vanidad1.png" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
+            </a>    
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -246,13 +318,13 @@ function plusSlides(n) {
                         <a class="nav-link" href="nosotros.html"><button>Nosotros</button></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicios.html"><button>Servicios</button></a>
+                        <a class="nav-link" href="nosotros.html" ><button >Servicios</button></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="productos.html"><button>Productos</button></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="galeria.html"><button class="active">Galeria</button></a>
+                        <a class="nav-link" href="galeria.html"><button class="active">Galería</button></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contacto.html"><button>Contacto</button></a>
@@ -262,54 +334,65 @@ function plusSlides(n) {
         </center>
         </nav>
     </header>
- <br>
- <br>
- <h1>Galería</h1>
-<br>
-<br>
-<br>
-<br>
-<div class="carousel">
-  <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-  <img src="galery/estetica.jpeg" class="slide">
-  <img src="galery/imagenheader.png" class="slide">
-  <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/083f19d6-d744-4054-91c7-15e795b2b1b3.jpg" class="slide">
-  <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/84070c03-2971-433a-aa92-68a895afe7b2.jpg" class="slide">
-  <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/8eb236dd-033f-44e5-9a60-084d92636cdf.jpg" class="slide">
-  <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/mechas.jpg" class="slide">
-  <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/tinta1.jpeg" class="slide">
-  <img src="galery/Corte y moldeado/IMG_3250(1).PNG" class="slide">
-  <img src="galery/Maquillaje y peinado/0E9F9544-2753-41E4-8EA9-2342A6B76A4C.jpeg" class="slide">
-  <img src="galery/Maquillaje y peinado/3F17C592-6305-4DB7-98DA-325ECA725EFB.jpeg" class="slide">
-  <img src="galery/Maquillaje y peinado/5B0FB5D3-01EE-41E6-81AC-F62384268571.jpg" class="slide">
-  <img src="galery/Maquillaje y peinado/maquillajeypeinado.jpg" class="slide">
-  <img src="galery/Depilación/ECDA0D06-FCE8-42C5-A8E9-46F1AA6022EF.jpeg" class="slide">
-  <img src="galery/Depilación/IMG_7037.JPG" class="slide">
-  <img src="galery/Extensiones de pestañas/pestañas.JPG" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/068fb914-ab24-4581-a975-39729d1dd747.jpg" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/cd51a906-a06d-4dcd-bfd9-9d6a19461703.jpg" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/FDC7BC55-13E3-4C57-8F80-FA61A4E435C1.jpeg" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/IMG_0707.JPG" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/IMG_1419.PNG" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/IMG_3255.PNG" class="slide">
-  <img src="galery/Uñas-manicura-pedicura/uñas.PNG" class="slide">
-  <button class="next" onclick="plusSlides(1)">&#10095;</button>
-</div>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <h1>Galería</h1>
+  <br>
+  
+  <center>
+  <p>Descubre el arte del estilismo en Bella Vanidad. Navega por nuestra selección de imágenes que destacan la precisión y creatividad de nuestros servicios. Desde transformaciones impactantes hasta detalles sutiles, cada imagen refleja nuestra dedicación a la belleza y el cuidado personal.</p>
+  </center>
 
-<br>
-<br>
-<br>
-  <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
-    <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
-    <p>Síguenos en nuestras redes sociales.</p>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
+  <div class="carousel">
+    
+    <img src="galery/estetica.jpeg" class="slide" style="display: block";>
+    <img src="galery/imagenheader.png" class="slide">
+    <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/083f19d6-d744-4054-91c7-15e795b2b1b3.jpg" class="slide">
+    <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/84070c03-2971-433a-aa92-68a895afe7b2.jpg" class="slide">
+    <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/8eb236dd-033f-44e5-9a60-084d92636cdf.jpg" class="slide">
+    <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/mechas.jpg" class="slide">
+    <img src="galery/Efectos de color-Tintes-Retoques de tinte-mechas/tinta1.jpeg" class="slide">
+    <img src="galery/Corte y moldeado/IMG_3250(1).PNG" class="slide">
+    <img src="galery/Maquillaje y peinado/0E9F9544-2753-41E4-8EA9-2342A6B76A4C.jpeg" class="slide">
+    <img src="galery/Maquillaje y peinado/3F17C592-6305-4DB7-98DA-325ECA725EFB.jpeg" class="slide">
+    <img src="galery/Maquillaje y peinado/5B0FB5D3-01EE-41E6-81AC-F62384268571.jpg" class="slide">
+    <img src="galery/Maquillaje y peinado/maquillajeypeinado.jpg" class="slide">
+    <img src="galery/Depilación/ECDA0D06-FCE8-42C5-A8E9-46F1AA6022EF.jpeg" class="slide">
+    <img src="galery/Depilación/IMG_7037.JPG" class="slide">
+    <img src="galery/Extensiones de pestañas/pestañas.JPG" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/068fb914-ab24-4581-a975-39729d1dd747.jpg" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/cd51a906-a06d-4dcd-bfd9-9d6a19461703.jpg" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/FDC7BC55-13E3-4C57-8F80-FA61A4E435C1.jpeg" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/IMG_0707.JPG" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/IMG_1419.PNG" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/IMG_3255.PNG" class="slide">
+    <img src="galery/Uñas-manicura-pedicura/uñas.PNG" class="slide">  
+  </div>
+  <br>
+  <br>
+  <div class="iframe-container">
+    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https://www.facebook.com/Bellavanidadbeautysalon/videos/1708806549528985&show_text=false&width=560" allowfullscreen="true"></iframe>
+  </div>
+  <div class="iframe-container">
+    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https://www.facebook.com/Bellavanidadbeautysalon/videos/1423015668166505&show_text=false&width=560" allowfullscreen="true"></iframe>
+  </div>
+  <div class="iframe-container">
+    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https://www.facebook.com/Bellavanidadbeautysalon/videos/579894887034778&show_text=false&width=560" allowfullscreen="true"></iframe>
+  </div>
+  <br>
+  <br>
+  <br>
+    <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
+      <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
+      <p>Síguenos en nuestras redes sociales.</p>
+      <div class="social-icons">
+          <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
   </footer>
-    <script src="https://salesiq.zohopublic.com/widget?wc=siq91fda8a48a237645d9a5d08dd5b39268a149aedbd842f9f337c355ec4274f812"></script>
-    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq91fda8a48a237645d9a5d08dd5b39268a149aedbd842f9f337c355ec4274f812" defer></script>
-
-</body>
+  </body>
 </html>
