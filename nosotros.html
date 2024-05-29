@@ -277,6 +277,52 @@
         margin: 0 5px; /* Reducir el espacio entre íconos */
     }
 }
+/* Parte de agregar comentario*/
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#post-form {
+    margin-top: 20px;
+}
+
+#post-form input,
+#post-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+#post-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #C30068;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#post-form button:hover {
+    background-color: #D60076;
+}
+.post {
+        background-color: #F7F0F1;
+            border: 1px solid #DAA1B0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+}
+
+.post h2 {
+    margin: 0 0 10px;
+}
+
+.post p {
+    margin: 0;
+}
         </style>
     </head>
     <body>
@@ -410,6 +456,14 @@
                         Acudan y no se arrepentirán del resultado 🌸🌹💜 - Kattia Arriaga</p>
                 </div>
             </div>
+            <div id="testimonios-list"></div>
+                <form id="post-form">
+                    <input type="text" id="title" placeholder="Nombre" required>
+                    <textarea id="content" placeholder="Comentario" required></textarea>
+                    <button type="submit">Agregar Comentario</button>
+                </form>
+
+        </div>
         </section>
         <!-- Galería Interactiva -->
         <section id="galeria" style="padding: 50px; text-align: center;" data-aos="fade-up" data-aos-delay="600">
@@ -439,4 +493,30 @@
                AOS.init();
 
             </script>
+           <script>
+            document.getElementById('post-form').addEventListener('submit', function(e) {
+                e.preventDefault(); // Previene el comportamiento por defecto del formulario
+        
+                // Obtener valores de los campos del formulario
+                const name = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+        
+                // Crear elementos HTML para mostrar el nuevo comentario
+                const post = document.createElement('div');
+                post.classList.add('post');
+                const postName = document.createElement('h3');
+                postName.textContent = name; // Nombre del usuario
+                const postContent = document.createElement('p');
+                postContent.textContent = content; // Comentario del usuario
+        
+                // Añadir los nuevos elementos al contenedor de testimonios
+                post.appendChild(postName);
+                post.appendChild(postContent);
+                document.getElementById('testimonios-list').appendChild(post);
+        
+                // Limpiar el formulario después de enviar
+                document.getElementById('post-form').reset();
+            });
+        </script>
+        
             </body> </html> 
