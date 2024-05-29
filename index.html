@@ -6,6 +6,7 @@
     <link rel="icon" href="logo.jpg" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Raleway:300,400,700">
     <meta name="keywords" content="cortes, uñas, cejas, pestañas, peinados, tintes">
+    <meta name="description" content="Descubre Bella Vanidad, tu destino para resaltar tu belleza única con servicios personalizados de estilismo, corte, coloración, manicura y más en un ambiente exclusivo. Visítanos y deja que nuestros expertos transformen tu look y realcen tu belleza natural.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -30,7 +31,7 @@
             color: #333; /* Texto oscuro para contraste */
             justify-content: space-between;
             padding: 10px 50px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
         }
         h1 {
             font-family: 'Tangerine', serif;
@@ -91,10 +92,28 @@ h1, h2 {
     transform: scale(1.05); /* Efecto sutil al hacer hover */
 }
 
-/* Ajustes responsivos */
 @media (max-width: 768px) {
-    .navbar-toggler {
-        border-color: #E4007C; /* Rosa para el toggler */
+    header, .navbar {
+        padding: 0 10px;
+        min-height: 60px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 24px;
+        padding: 5px 0;
+    }
+    .carousel-inner img {
+        height: 250px; /* Ajusta según necesites */
+    }
+    .section {
+        padding: 20px;
+    }
+    .botones button {
+        padding: 12px 18px;
+        font-size: 16px;
     }
 }
 
@@ -426,7 +445,7 @@ a:hover {
      <header>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FFE8ED;">
             <a class="navbar-brand" href="#">
-                <img src="vanidad1.png" alt="Logo de Bella Vanidad" style="height: 118px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
+                <img src="vanidad1.png" alt="Logo de Bella Vanidad" style="height: 150px;"> <!-- Ajusta la ruta y el tamaño según sea necesario -->
             </a>            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -460,6 +479,7 @@ a:hover {
         <div class="welcome-message">
             Bienvenidos a Bella Vanidad<br>
             <small>Tu belleza, nuestra pasión.</small>
+            
         </div>
     </div>
     <main>
@@ -570,7 +590,7 @@ a:hover {
         <section class="contact-form" data-aos="fade-up" data-aos-delay="500">
             <div class="container">
                 <h2>Contacta con Nosotros</h2>
-                <p>¿Tienes alguna pregunta o necesitas agendar una cita? ¡No dudes en enviarnos un mensaje a través de WhatsApp!</p>
+                <p>¿Tienes alguna pregunta o necesitas agendar una cita? Estamos aquí para ayudarte. Conecta con nosotros a través de nuestro formulario en línea o envíanos un mensaje directamente a nuestro WhatsApp para una respuesta rápida. Además, ¡síguenos en nuestras redes sociales para estar al día con las últimas tendencias y ofertas especiales!</p>                
                 <br>
                 <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" class="submit-btn" target="_blank">Enviar Mensaje por WhatsApp</a>
             </div>
@@ -582,15 +602,15 @@ a:hover {
             <div id="map" style="width: 400px; height: 400px; align-items: center;" data-aos="fade-up" data-aos-delay="400"></div>
         </center>
     </main>
-    <footer style=" background-color: rgba(255, 232, 237, 0.95); padding: 20px; text-align: center; color:#000;">
+    <footer style="background-color: #FFE8ED; padding: 20px; text-align: center;">
         <p>Bella Vanidad © 2024. Todos los derechos reservados.</p>
         <p>Síguenos en nuestras redes sociales.</p>
         <div class="social-icons">
             <a href="https://www.facebook.com/Bellavanidadbeautysalon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://api.whatsapp.com/send/?phone=524441412889&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/bella.vanidad_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a"></a>
         </div>
-    </footer>
+        </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -599,8 +619,7 @@ a:hover {
     <script>
         AOS.init();
     </script>
-    <script src="https://salesiq.zohopublic.com/widget?wc=siq91fda8a48a237645d9a5d08dd5b39268a149aedbd842f9f337c355ec4274f812"></script>
-    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq91fda8a48a237645d9a5d08dd5b39268a149aedbd842f9f337c355ec4274f812" defer></script>
+ <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq91fda8a48a237645d9a5d08dd5b39268a149aedbd842f9f337c355ec4274f812" defer></script>
     <script>
         var map = L.map('map').setView([22.114455731500307, -100.89206366483398], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
