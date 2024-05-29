@@ -283,17 +283,21 @@
     margin: 0 auto;
     overflow: hidden;
 }
-
+/* Estilos para el formulario de comentarios */
 #post-form {
+    background-color: #FFF0F5;
+    padding: 20px;
     margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-#post-form input,
-#post-form textarea {
+#post-form input, #post-form textarea {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #DAA1B0;
+    border-radius: 5px;
 }
 
 #post-form button {
@@ -302,27 +306,53 @@
     background-color: #C30068;
     color: #fff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #post-form button:hover {
     background-color: #D60076;
 }
+
+/* Estilos para los comentarios agregados dinámicamente */
 .post {
-        background-color: #F7F0F1;
-            border: 1px solid #DAA1B0;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: #5C3A57;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.post h2 {
-    margin: 0 0 10px;
+/* Estilos para comentarios en posiciones impares */
+.post:nth-child(odd) {
+    background-color: #F7F0F1; /* Un tono claro de rosa */
+    border: 1px solid #DAA1B0;
+}
+
+/* Estilos para comentarios en posiciones pares */
+.post:nth-child(even) {
+    background-color: #F7F0F1; /* Un tono claro de rosa */
+    border: 1px solid #DAA1B0;
+}
+
+.post h3 {
+    color: #E4007C;
+    margin-bottom: 5px;
+}
+
+.post h3 {
+    color: #E4007C;
+    margin-bottom: 5px;
 }
 
 .post p {
-    margin: 0;
+    color: #5C3A57;
+    font-size: 16px;
 }
+
+
         </style>
     </head>
     <body>
@@ -457,12 +487,12 @@
                 </div>
             </div>
             <div id="testimonios-list"></div>
-                <form id="post-form">
-                    <input type="text" id="title" placeholder="Nombre" required>
-                    <textarea id="content" placeholder="Comentario" required></textarea>
-                    <button type="submit">Agregar Comentario</button>
-                </form>
-
+            <h2>Agrega tu experiencia</h2>
+            <form id="post-form">
+                <input type="text" id="title" placeholder="Nombre" required>
+                <textarea id="content" placeholder="Comentario" required></textarea>
+                <button type="submit">Agregar Comentario</button>
+            </form>
         </div>
         </section>
         <!-- Galería Interactiva -->
@@ -493,30 +523,37 @@
                AOS.init();
 
             </script>
-           <script>
-            document.getElementById('post-form').addEventListener('submit', function(e) {
-                e.preventDefault(); // Previene el comportamiento por defecto del formulario
-        
-                // Obtener valores de los campos del formulario
-                const name = document.getElementById('title').value;
-                const content = document.getElementById('content').value;
-        
-                // Crear elementos HTML para mostrar el nuevo comentario
+          <script>
+                    function appendComment(comment) {
                 const post = document.createElement('div');
-                post.classList.add('post');
+                post.className = 'post';
                 const postName = document.createElement('h3');
-                postName.textContent = name; // Nombre del usuario
+                postName.textContent = comment.name;
                 const postContent = document.createElement('p');
-                postContent.textContent = content; // Comentario del usuario
-        
-                // Añadir los nuevos elementos al contenedor de testimonios
+                postContent.textContent = comment.content;
                 post.appendChild(postName);
                 post.appendChild(postContent);
-                document.getElementById('testimonios-list').appendChild(post);
-        
-                // Limpiar el formulario después de enviar
+                document.getElementById('post-form').appendChild(post);
+            }
+
+            document.getElementById('post-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+                const comment = { name: name, content: content };
+                let comments = JSON.parse(localStorage.getItem('comments')) || [];
+                comments.push(comment);
+                localStorage.setItem('comments', JSON.stringify(comments));
+                appendComment(comment);
                 document.getElementById('post-form').reset();
             });
-        </script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+                comments.forEach(appendComment);
+            });
+
+            </script>
+            
         
             </body> </html> 
